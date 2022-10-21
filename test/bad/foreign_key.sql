@@ -1,0 +1,16 @@
+DROP TABLE IF EXISTS t1, t2;
+
+CREATE TABLE t1 (
+ id INT NOT NULL PRIMARY KEY auto_increment,
+ a CHAR(32) NOT NULL
+);
+
+CREATE TABLE t2 (
+ id INT NOT NULL PRIMARY KEY auto_increment,
+ t1_id INT NOT NULL,
+ b CHAR(32) NOT NULL,
+ FOREIGN KEY (t1_id) REFERENCES t1(id)
+);
+
+INSERT INTO t1 VALUES (1, 'aa');
+INSERT INTO t2 VALUES (1, 1, 'bbb');
