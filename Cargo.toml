@@ -1,10 +1,12 @@
+
+
 [package]
-name = "linti"
+name = "tikey"
 version = "0.1.0"
 authors = ["cutecutecat <starkind1997@gmail.com>"]
 edition = "2021"
 description = "Distributed cloud native storage system"
-repository = "https://github.com/cutecutecat/LinTi"
+repository = "https://github.com/cutecutecat/TiKey"
 readme = "README.md"
 license = "MIT"
 keywords = ["Database", "lint"]
@@ -12,7 +14,19 @@ categories = ["filesystem"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[[bin]]
+name = "tikey"
+path = "src/main.rs"
+
+[lib]
+name = "tikey"
+path = "src/lib.rs"
+
 [dependencies]
-sqlparser = { git = "https://github.com/sqlparser-rs/sqlparser-rs.git", tag = "v0.25.0" , features = ["serde"]}
+sqlparser = { version = "0.26.0" , features = ["serde"] }
 once_cell = "1.15.0"
 serde_json = "1.0.87"
+comfy-table = "6.1.1"
+clap = { version = "4.0.18" , features = ["derive"] }
+walkdir = "2"
+anyhow = "1.0.66"

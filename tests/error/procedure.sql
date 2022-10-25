@@ -1,0 +1,1 @@
+create procedure getname(num varchar(100)) begin select stu_name from student where id=num end;

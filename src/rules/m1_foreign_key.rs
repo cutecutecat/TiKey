@@ -3,6 +3,10 @@ use super::{DBVersion, InfoLevel, Rule, RuleFuture, RuleInfo, Trigger};
 pub struct RuleForeignKey {}
 
 impl Rule for RuleForeignKey {
+    fn uid() -> String {
+        return "m1".to_string();
+    }
+
     fn trigger(&self) -> Trigger {
         Trigger::KeyEqual("ForeignKey".to_string())
     }
@@ -18,6 +22,13 @@ impl Rule for RuleForeignKey {
 
         let url: Option<String> = Some("https://github.com/pingcap/tidb/issues/18209".to_string());
 
-        RuleInfo::new(info_level, db_version_range, future, description, url)
+        RuleInfo::new(
+            Self::uid(),
+            info_level,
+            db_version_range,
+            future,
+            description,
+            url,
+        )
     }
 }

@@ -1,0 +1,1 @@
+create table t4 select t1.* from t1;
